@@ -197,6 +197,38 @@
             transform: translateY(-3px);
         }
 
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
         /* Portfolio Section */
         .portfolio-section {
             flex: 1;
@@ -535,50 +567,6 @@
             cursor: not-allowed;
         }
 
-        /* Mobile-specific styles */
-        @media (max-width: 768px) {
-            .fullscreen-image {
-                max-width: 100%;
-                max-height: 100%;
-            }
-
-            .fullscreen-controls {
-                top: 15px;
-                right: 15px;
-            }
-
-            .fullscreen-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.1rem;
-            }
-
-            .fullscreen-nav {
-                width: 55px;
-                height: 55px;
-                font-size: 1.3rem;
-            }
-
-            .fullscreen-nav.prev {
-                left: 15px;
-            }
-
-            .fullscreen-nav.next {
-                right: 15px;
-            }
-
-            .fullscreen-info {
-                bottom: 15px;
-                font-size: 0.85rem;
-                padding: 0.6rem 1.2rem;
-            }
-
-            .zoom-controls {
-                bottom: 70px;
-                right: 15px;
-            }
-        }
-
         /* Fullscreen trigger button on slides */
         .slide {
             position: relative;
@@ -773,12 +761,61 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem 3rem;
+                min-height: 85vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .profile-image {
+                width: 90px;
+                height: 90px;
+                margin-bottom: 1rem;
+            }
+
+            .profile-image i {
+                font-size: 2.5rem;
+            }
+
             .name {
-                font-size: 2rem;
+                font-size: 1.75rem;
+                margin-bottom: 0.3rem;
             }
             
             .title {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .specialties {
+                gap: 0.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .specialty-tag {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .cta-section {
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .download-btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .social-link {
+                width: 40px;
+                height: 40px;
+            }
+
+            .scroll-indicator {
+                display: flex;
             }
             
             .portfolio-slider {
@@ -809,6 +846,54 @@
 
             .autoplay-toggle {
                 font-size: 0.8rem;
+            }
+
+            .fullscreen-image {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            .fullscreen-controls {
+                top: 15px;
+                right: 15px;
+            }
+
+            .fullscreen-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .fullscreen-nav {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+
+            .fullscreen-nav.prev {
+                left: 15px;
+            }
+
+            .fullscreen-nav.next {
+                right: 15px;
+            }
+
+            .fullscreen-info {
+                bottom: 15px;
+                font-size: 0.85rem;
+                padding: 0.6rem 1.2rem;
+            }
+
+            .zoom-controls {
+                bottom: 70px;
+                right: 15px;
+            }
+        }
+
+        /* Hide scroll indicator on desktop */
+        @media (min-width: 769px) {
+            .scroll-indicator {
+                display: none;
             }
         }
     </style>
@@ -846,6 +931,12 @@
                         <a href="mailto:haziqshukor@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Scroll Indicator (Mobile Only) -->
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </header>
 
